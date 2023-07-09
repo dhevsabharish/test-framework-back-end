@@ -12,11 +12,11 @@ const app = express();
 
 // db
 mongoose
-    .connect(process.env.MONGO_URI)
-    .then(() => console.log('DB Connected!'))
-    .catch(err => {
-        console.log(Error, err.message);
-    });
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log('DB Connected!'))
+  .catch(err => {
+    console.log(Error, err.message);
+  });
 
 
 // middleware
@@ -34,7 +34,5 @@ const port = process.env.PORT || 8080;
 
 // listener
 const server = app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
+  console.log(`Server is running on port: ${port}`);
 });
-
-// hidden comment
