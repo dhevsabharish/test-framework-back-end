@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 require('dotenv').config();
+const { errorHandler } = require('./middlewares/errorMiddleware');
 
 
 // app
 const app = express();
-
 
 // db
 mongoose
@@ -19,13 +19,13 @@ mongoose
   });
 
 
-// middleware
+// middleware & routes
 app.use(morgan('dev'));
 app.use(cors({ origin: true, credentials: true }));
-
-// routes
-const testRoutes = require('./routes/test');
-app.use("/", testRoutes)
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use('/api/modules', require('./routes/moduleRoutes'))
+app.use(errorHandler);
 
 
 // ports
