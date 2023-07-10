@@ -3,20 +3,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
+const colors = require('colors');
 require('dotenv').config();
 const { errorHandler } = require('./middlewares/errorMiddleware');
+const connectDB = require('./config/db');
 
 
 // app
 const app = express();
 
 // db
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log('DB Connected!'))
-  .catch(err => {
-    console.log(Error, err.message);
-  });
+connectDB()
 
 
 // middleware & routes
