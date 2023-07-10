@@ -20,7 +20,7 @@ connectDB()
 app.use(morgan('dev'));
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: false }));
 app.use('/api/modules', require('./routes/moduleRoutes'))
 app.use(errorHandler);
 

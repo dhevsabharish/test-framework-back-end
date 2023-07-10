@@ -12,17 +12,23 @@ const getModules = asyncHandler(async (req, res) => {
 // @desc  Set Module
 // @route POST /api/modules
 const setModule = asyncHandler(async (req, res) => {
-  if (!req.body.name) {
-    res.status(400)
-    throw new Error('Please add a Name field')
+  if (!req.body.moduleName || !req.body.protocol || !req.body.categories) {
+    res.status(400);
+    throw new Error('Please provide moduleName, protocol, and category fields');
   }
 
+  const { moduleName, protocol, categories } = req.body;
+
   const module = await Module.create({
-    name: req.body.name
-  })
+    moduleName,
+    protocol,
+    categories
+  });
 
   res.status(200).json(module);
-})
+});
+
+
 
 // @desc  Update Module
 // @route PUT /api/modules/:id
