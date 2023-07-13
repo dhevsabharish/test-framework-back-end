@@ -1,15 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const categorySchema = new Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  values: {
-    type: [String],
-    required: true
-  }
+const categorySchema = new Schema();
+categorySchema.add({
+  name: String,
+  values: [categorySchema]
 });
 
 const moduleSchema = new Schema({
@@ -18,6 +13,10 @@ const moduleSchema = new Schema({
     required: true
   },
   protocol: {
+    type: String,
+    required: true
+  },
+  moduleUrl: {
     type: String,
     required: true
   },
