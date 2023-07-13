@@ -7,6 +7,30 @@ categorySchema.add({
   values: [categorySchema]
 });
 
+const testCaseFieldSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  type: {
+    type: String,
+    enum: ['string', 'number', 'boolean', 'date', 'array', 'object'],
+    required: true
+  },
+  required: {
+    type: Boolean,
+    required: true
+  },
+  default: {
+    type: String,
+    required: false
+  },
+  description: {
+    type: String,
+    required: false
+  }
+});
+
 const moduleSchema = new Schema({
   moduleName: {
     type: String,
@@ -20,11 +44,14 @@ const moduleSchema = new Schema({
     type: String,
     required: true
   },
+  testCaseFields: {
+    type: [testCaseFieldSchema],
+    required: true
+  },
   categories: {
     type: [categorySchema],
     required: true
   }
 });
 
-module.exports = mongoose.model('Category', categorySchema);
 module.exports = mongoose.model('Module', moduleSchema);
