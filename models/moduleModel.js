@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const categorySchema = new Schema();
-categorySchema.add({
-  name: String,
-  values: [categorySchema]
+const moduleURLSchema = new Schema({
+  categoryNames: {
+    type: [String],
+    required: true
+  },
+  url: {
+    type: String,
+    required: true
+  }
 });
 
 const testCaseFieldSchema = new Schema({
@@ -14,19 +19,41 @@ const testCaseFieldSchema = new Schema({
   },
   type: {
     type: String,
-    enum: ['string', 'number', 'boolean', 'date', 'array', 'object'],
+    enum: ['TextArea', 'Dropdown', 'TextField'],
     required: true
   },
   required: {
     type: Boolean,
     required: true
   },
-  default: {
-    type: String,
-    required: false
-  },
   description: {
     type: String,
+    required: false
+  }
+});
+
+const subcategorySchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  configurations: {
+    type: [String],
+    required: true
+  }
+});
+
+const categorySchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  values: {
+    type: [String],
+    required: true
+  },
+  subcategories: {
+    type: [subcategorySchema],
     required: false
   }
 });
@@ -40,17 +67,21 @@ const moduleSchema = new Schema({
     type: String,
     required: true
   },
-  moduleUrl: {
-    type: String,
-    required: true
-  },
   testCaseFields: {
     type: [testCaseFieldSchema],
-    required: true
+    required: false
+  },
+  moduleURLs: {
+    type: [moduleURLSchema],
+    required: false
   },
   categories: {
     type: [categorySchema],
-    required: true
+    required: false
+  },
+  Application: {
+    type: String,
+    required: false
   }
 });
 

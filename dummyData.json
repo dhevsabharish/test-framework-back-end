@@ -1,50 +1,32 @@
 {
   "moduleName": "newTTS",
   "protocol": "HTTPS",
-  "moduleUrl": "https://TTS/abc/bbc",
+  "moduleURLs": [
+    {
+      "categoryNames": ["Device", "Mobile"],
+      "url": "http:TTS/dev/mob"
+    }
+  ],
   "testCaseFields": [
     {
       "name": "header",
-      "type": "string",
+      "type": "Dropdown",
       "required": "true"
     },
     {
       "name": "bufferlength",
-      "type": "number",
+      "type": "TextField",
       "required": "true"
     }
   ],
   "categories": [
     {
       "name": "Device",
-      "values": [
+      "values": ["TV", "Desktop", "Watch"],
+      "subcategories": [
         {
-          "name": "Mobile"
-        },
-        {
-          "name": "Phone",
-          "values": [
-            {
-              "name": "config1"
-            },
-            {
-              "name": "config2"
-            },
-            {
-              "name": "config3"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Language",
-      "values": [
-        {
-          "name": "Korean"
-        },
-        {
-          "name": "French"
+          "name": "Mobile",
+          "configurations": ["config1", "config2"]
         }
       ]
     }
