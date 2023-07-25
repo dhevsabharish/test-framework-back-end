@@ -11,12 +11,12 @@
     {
       "name": "header",
       "type": "Dropdown",
-      "required": "true"
+      "required": true
     },
     {
       "name": "bufferlength",
       "type": "TextField",
-      "required": "true"
+      "required": true
     }
   ],
   "categories": [

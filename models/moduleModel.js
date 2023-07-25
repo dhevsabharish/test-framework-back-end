@@ -33,7 +33,11 @@ const testCaseFieldSchema = new Schema({
 });
 
 const subcategorySchema = new Schema({
-  name: {
+  subcatName: {
+    type: String,
+    required: true
+  },
+  parentCatVal: {
     type: String,
     required: true
   },

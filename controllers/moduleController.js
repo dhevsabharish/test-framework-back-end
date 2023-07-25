@@ -17,6 +17,8 @@ const setModule = asyncHandler(async (req, res) => {
     throw new Error('Please provide the missing details');
   }
 
+  console.log(req.body);
+
   const { moduleName, protocol, moduleURLs, categories, testCaseFields } = req.body;
 
   const module = await Module.create({
