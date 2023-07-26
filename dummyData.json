@@ -22,13 +22,7 @@
   "categories": [
     {
       "name": "Device",
-      "values": ["TV", "Desktop", "Watch"],
-      "subcategories": [
-        {
-          "name": "Mobile",
-          "configurations": ["config1", "config2"]
-        }
-      ]
+      "values": ["TV", "Desktop", "Watch"]
     }
   ]
 }

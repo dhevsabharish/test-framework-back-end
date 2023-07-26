@@ -32,21 +32,6 @@ const testCaseFieldSchema = new Schema({
   }
 });
 
-const subcategorySchema = new Schema({
-  subcatName: {
-    type: String,
-    required: true
-  },
-  parentCatVal: {
-    type: String,
-    required: true
-  },
-  configurations: {
-    type: [String],
-    required: true
-  }
-});
-
 const categorySchema = new Schema({
   name: {
     type: String,
@@ -56,10 +41,6 @@ const categorySchema = new Schema({
     type: [String],
     required: true
   },
-  subcategories: {
-    type: [subcategorySchema],
-    required: false
-  }
 });
 
 const moduleSchema = new Schema({
