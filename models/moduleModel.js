@@ -22,6 +22,10 @@ const testCaseFieldSchema = new Schema({
     enum: ['TextArea', 'Dropdown', 'TextField'],
     required: true
   },
+  DropdownValues: {
+    type: [String],
+    required: false
+  },
   required: {
     type: Boolean,
     required: true
